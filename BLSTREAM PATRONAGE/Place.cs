@@ -39,7 +39,7 @@ namespace BLSTREAM_PATRONAGE
        public  Place()
         {
             _Name = "Jan";
-            _Address = "Wesoły";
+            _Address = "Białowieska 22";
             _Lattitude = 122;
             _Longitude = 123;
             _HasWifi = false;
