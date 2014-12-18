@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.ComponentModel;
+using System.Diagnostics;
 namespace BLSTREAM_PATRONAGE
 {
-    interface INotifyPropertyChanged
+    /*
+        public interface INotifyPropertyChanged
     {
         string Name { get; set; }
         string Address { get; set; }
@@ -15,6 +17,7 @@ namespace BLSTREAM_PATRONAGE
         bool HasWifi { get; set; }
 
     }
+     */
     class Place : INotifyPropertyChanged
     {
         private string _Name;
@@ -23,75 +26,108 @@ namespace BLSTREAM_PATRONAGE
         private double _Longitude;
         private bool _HasWifi;
 
-       /* public Place(string Name, string Address, double Lattitude, double Longitude, bool HasWifi)
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyPropertyChanged(String info)
         {
-            _Name = Name;
-            _Address = Address;
-            _Lattitude = Lattitude;
-            _Longitude = Longitude;
-            _HasWifi = HasWifi;
-        }*/
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(info));
+            }
+        }
+
+       public  Place()
+        {
+            _Name = "Jan";
+            _Address = "Wesoły";
+            _Lattitude = 122;
+            _Longitude = 123;
+            _HasWifi = false;
+        }
+
 
         public string Name
         {
             get
             {
-                return _Name;
+                return this._Name;
             }
             set
             {
-                _Name = value;
+                if (value != this._Name)
+                {
+                    this._Name = value;
+                    NotifyPropertyChanged("Name");
+                }
             }
         }
         public string Address
         {
             get
             {
-                return _Address;
+                return this._Address;
             }
             set
             {
-                _Address = value;
+                if (value != this._Address)
+                {
+                    this._Address = value;
+                    NotifyPropertyChanged("Address");
+                }
             }
         }
         public double Lattitude
         {
             get
             {
-                return _Lattitude;
+                return this._Lattitude;
             }
             set
             {
-                _Lattitude = value;
+                if (value != this._Lattitude)
+                {
+                    this._Lattitude = value;
+                    NotifyPropertyChanged("Lattitude");
+                }
             }
         }
         public double Longitude
         {
             get
             {
-                return _Longitude;
+                return this._Longitude;
             }
             set
             {
-                _Longitude = value;
+                if (value != this._Longitude)
+                {
+                    this._Longitude = value;
+                    NotifyPropertyChanged("Longitude");
+                }
             }
         }
         public bool HasWifi
         {
             get
             {
-                return _HasWifi;
+                return this._HasWifi;
             }
             set
             {
-                _HasWifi = value;
+                if (value != this._HasWifi)
+                {
+                    this._HasWifi = value;
+                    NotifyPropertyChanged("HasWifi");
+                }
             }
         }
 
 
         public override string ToString()
         {
-            return (System.String.Format("{0} + {1}",Name,Address));
+            return (System.String.Format("{{0}},{{1}}",Name,Address));
         }
+        
+
     }
 }

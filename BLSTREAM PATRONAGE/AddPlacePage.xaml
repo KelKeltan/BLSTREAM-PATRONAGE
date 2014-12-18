@@ -6,48 +6,43 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    <Grid>
-        <StackPanel>
-            <TextBlock
-        Text="Name"
-        Margin="5,0,0,0"
-        FontSize="16"
-        Foreground="LightGray"/>
-
-            <TextBox
-        x:Name="Name_Text">
-                <TextBox.Text>
-                    <Binding Mode="TwoWay" Path="Filler"/></TextBox.Text>
-            </TextBox>
-            <TextBlock
-        Text="Address"
-        Margin="5,0,0,0"
-        FontSize="16"
-        Foreground="LightGray"/>
-            
-            <TextBox
-        x:Name="Address"/>
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    FontSize="16"
+    Margin="5,30,0,0"
+    Foreground="LightGray">
  
+    <Grid
+        x:Name="LayoutRoot"> 
+        
+        <StackPanel>
             
             <TextBlock
-        Text="Lat:"
-        Margin="5,0,0,0"
-        FontSize="16"
-        Foreground="LightGray"/>
+        Text="Name"/>
 
             <TextBox
-        x:Name="Lattitude" />
+        x:Name="Name"
+        Text="{Binding Path=Name,Mode=TwoWay}"/>
+            
+            <TextBlock
+        Text="Address"/>
+            
+            <TextBox
+        x:Name="Address"
+        Text="{Binding Path=Address,Mode=TwoWay}"/>
+             
+            <TextBlock
+        Text="Lat:"/>
+
+            <TextBox
+        x:Name="Lattitude" 
+        Text="{Binding Path=Lattitude,Mode=TwoWay}"/>
 
             <TextBlock
-        Text="Lon:"
-        Margin="5,0,0,0"
-        FontSize="16"
-        Foreground="LightGray"/>
+        Text="Lon:"/>
 
             <TextBox
-        x:Name="Longitude"/>
+        x:Name="Longitude"
+        Text="{Binding Path=Longitude,Mode=TwoWay}"/>
             
             <CheckBox>                
                 Has Wifi
