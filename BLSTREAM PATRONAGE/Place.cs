@@ -7,17 +7,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 namespace BLSTREAM_PATRONAGE
 {
-    /*
-        public interface INotifyPropertyChanged
-    {
-        string Name { get; set; }
-        string Address { get; set; }
-        double Lattitude { get; set; }
-        double Longitude { get; set; }
-        bool HasWifi { get; set; }
 
-    }
-     */
     class Place : INotifyPropertyChanged
     {
         private string _Name;
@@ -35,16 +25,6 @@ namespace BLSTREAM_PATRONAGE
                 PropertyChanged(this, new PropertyChangedEventArgs(info));
             }
         }
-
-       public  Place()
-        {
-            _Name = "Jan";
-            _Address = "Białowieska 22";
-            _Lattitude = 122;
-            _Longitude = 123;
-            _HasWifi = false;
-        }
-
 
         public string Name
         {
@@ -125,7 +105,7 @@ namespace BLSTREAM_PATRONAGE
 
         public override string ToString()
         {
-            return (System.String.Format("{{0}},{{1}}",Name,Address));
+            return (System.String.Format("{0},{1}",Name,Address));
         }
         
 

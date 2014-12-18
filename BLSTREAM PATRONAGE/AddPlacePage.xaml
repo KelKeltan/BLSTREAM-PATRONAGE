@@ -12,40 +12,33 @@
     Foreground="LightGray">
  
     <Grid
-        x:Name="LayoutRoot"> 
-        
+         x:Name="LayoutRoot">
+       
         <StackPanel>
             
             <TextBlock
         Text="Name"/>
-
             <TextBox
-        x:Name="Name"
         Text="{Binding Path=Name,Mode=TwoWay}"/>
             
             <TextBlock
         Text="Address"/>
-            
             <TextBox
-        x:Name="Address"
         Text="{Binding Path=Address,Mode=TwoWay}"/>
              
             <TextBlock
         Text="Lat:"/>
-
             <TextBox
-        x:Name="Lattitude" 
         Text="{Binding Path=Lattitude,Mode=TwoWay}"/>
 
             <TextBlock
         Text="Lon:"/>
-
             <TextBox
-        x:Name="Longitude"
         Text="{Binding Path=Longitude,Mode=TwoWay}"/>
             
-            <CheckBox>                
-                Has Wifi
+            <CheckBox
+                IsChecked="{Binding Path=HasWifi}">                
+                Has Wifi                
             </CheckBox>
             
             <Button x:Name="LocationButton" Click="Location_Click" Content="get GPS Lat/Lon"/>
